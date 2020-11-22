@@ -1,6 +1,14 @@
+<?php
+    session_start();
+    if(!isset($_SESSION["username"])){
+		header("Location: hrlogin.php");
+	}
+?>
 <!DOCTYPE html>
 <html>
-	<head></head>
+	<head>
+	   <title>Employee Information</title>
+	</head>
 	<body>
 			<form action="" method="post">
 			    <h2 align="center"><font size="6">Employee Information</font></h2>

@@ -1,4 +1,10 @@
-<?php include_once "../php/product_validation.php";?>
+<?php include_once "../php/product_validation.php";
+
+    session_start();
+    if(!isset($_SESSION["username"])){
+		header("Location: hrlogin.php");
+	}
+?>
 <!DOCTYPE html>
 <html>
 	<head></head>

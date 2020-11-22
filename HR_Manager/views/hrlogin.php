@@ -1,4 +1,10 @@
-<?php include_once "../php/hrlogin_validation.php" ;?>
+<?php include_once "../php/hrlogin_validation.php" ;
+
+    //session_start();
+    if(isset($_SESSION["username"])){
+		header("Location: hr_dashboard.php");
+	}
+?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
    <head>
@@ -11,12 +17,12 @@
 	     <h1>Login</h1>
 		 <form method="post">
 		    <div class="txt_field">
-			   <input type="text" name="username" required>
+			   <input type="text" value="<?php echo $username?>" name="username" required>
 			   <span></span>
 			   <label>Username</label>
 			</div>
 			<div class="txt_field">
-			   <input type="password" name="pass" required>
+			   <input type="password" value="<?php echo $pass?>" name="pass" required>
 			   <span></span>
 			   <label>Password</label>
 			</div>

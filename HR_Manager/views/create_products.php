@@ -1,7 +1,16 @@
-<?php include_once "../php/product_validation.php";?>
+<?php include_once "../php/product_validation.php";
+
+    session_start();
+    if(!isset($_SESSION["username"])){
+		header("Location: hrlogin.php");
+	}
+
+?>
 <!DOCTYPE html>
 <html>
-	<head></head>
+	<head>
+	    <title>Product Create</title>
+	</head>
 	<body>
 			<form action="" method="post">
 				<table border="0" width="100%" cellpadding="0" cellspacing="0" align="center">

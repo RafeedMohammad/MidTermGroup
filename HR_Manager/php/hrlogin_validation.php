@@ -1,20 +1,23 @@
 <?php
+    session_start();
+    if(isset($_SESSION["username"])){
+		header("Location: hr_dashboard.php");
+	}
 	$username="";
 	$err_username="";
 	$pass="";
 	$err_pass="";
 	$hasError=false;
-	$flag=false;
 	if(isset($_POST["login"])){
 		if(empty($_POST["username"])){
-			//$err_uname="Username Required";
+			$err_username="Username Required";
 			$hasError =true;	
 		}
 		else{
 			$username = htmlspecialchars($_POST["username"]);
 		}
 		if(empty ($_POST["pass"])){
-			//$err_pass="Password Required";
+			$err_pass="Password Required";
 			$hasError = true;
 		}
 		else{
@@ -23,21 +26,27 @@
 		
 		if(!$hasError)
 		{
-			$hrs = simplexml_load_file("hrdata.xml");
+			$xml = simplexml_load_file("hrdata.xml");
+			$hrs = $xml->hr;
+			$flag=false;
 			foreach($hrs as $hr)
 			{
-                if(strcmp($hr->username,$username)==0 && strcmp($hr->password,$pass)==0)
-				{
-
-					header("Location: hr_dashboard.php");
+                if($hr->username==$username && $hr->password==$pass)
+				{   
 					$flag=true;
-					break;
+					session_start();
+					$_SESSION["username"] = $username;
                 }
 			}
 			
-			if(!$flag)
+			if($flag)
 			{
-				echo "Invalid Credentials!";
+				header("Location: hr_dashboard.php");
+			}
+			else
+			{
+			     echo "Invalid Credentials!";
+                
 			}
 		}
 	}

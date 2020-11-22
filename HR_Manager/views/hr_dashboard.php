@@ -1,6 +1,13 @@
+<?php
+    session_start();
+    if(!isset($_SESSION["username"])){
+		header("Location: hrlogin.php");
+	}
+?>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
+	<title>HR Manager</title>
 	<meta charset="UTF-8">
 	<title>Hr Dashboard</title>
 	<link rel="stylesheet" href="css/hr_style.css">
@@ -14,7 +21,7 @@
 				     <li><a href="hr_profile.php">Profile</a></li>
 				     <li><a href="changepassword.php">Change Password</a></li>
 					 <li><a href="contact_with.php">Contact</a></li>
-					 <li><a href="#">Log Out</a></li>
+					 <li><a href="../php/logout.php">Log Out</a></li>
 				 </ul>
 		     </div>
 		   

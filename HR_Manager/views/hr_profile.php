@@ -1,5 +1,8 @@
 <?php
-
+    session_start();
+    if(!isset($_SESSION["username"])){
+		header("Location: hrlogin.php");
+	}
    $firstname="Md. Alimul";
    $lastname="Reza";
    $password="12345678";
@@ -10,7 +13,9 @@
 ?>
 <!DOCTYPE html>
 <html>
-	<head></head>
+	<head>
+	    <title>Profile</title>
+	</head>
 	<body>
 			<form action="" method="post">
 			    

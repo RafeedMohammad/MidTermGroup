@@ -1,6 +1,13 @@
+<?php
+    session_start();
+    if(!isset($_SESSION["username"])){
+		header("Location: hrlogin.php");
+	}
+?>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
+	 <title>Contact</title>
 	<meta charset="UTF-8">
 	<link rel="stylesheet" href="css/contact_style.css">
 	<script src="https://kit.fontawesome.com/b99e675b6e.js"></script>

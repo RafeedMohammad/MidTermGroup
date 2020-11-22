@@ -1,4 +1,10 @@
-<?php include_once "../php/employee_validation.php" ;?>
+<?php include_once "../php/employee_validation.php" ;
+
+    session_start();
+    if(!isset($_SESSION["username"])){
+		header("Location: hrlogin.php");
+	}
+?>
 <!DOCTYPE html>
 <html>
 <title>Employee profile edit</title>
